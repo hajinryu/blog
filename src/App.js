@@ -4,25 +4,32 @@ import React,{useState} from 'react';
 
 function App() {
   let posts = '블로그 글 제목'
-  let[title,setTitle]=useState(['useState1','useState2','useState3']) //destructuring
+  let[title,setTitle]=useState(['나','가','다']) //destructuring
+  let[count,setCount]=useState(0);
 
+  function changeTitle(){
+    var newArray =[...title];
+    
+    setTitle(newArray.sort());
+  }
   return (
     <div className="App">
       <div className='black-nav'>
         <div>blog</div>
       </div>
       <div className='list'>
-        <h3>{title[0]} <span>👍</span>1</h3>
+        <button onClick={changeTitle}>button</button>
+        <h3>{title[0]} <span onClick={()=>{setCount(count+1)}}>👍</span>{count}</h3> 
         <p>2월 14일</p>
         <hr />
       </div>
       <div className='list'>
-        <h3>{title[1]}<span>👍</span>0</h3>
+        <h3>{title[1]}<span onClick={()=>{setCount(count+1)}}>👍</span>{count}</h3> 
         <p>2월 14일</p>
         <hr />
       </div>
       <div className='list'>
-        <h3>{title[2]}<span>👍</span>0</h3>
+        <h3>{title[2]}<span onClick={()=>{setCount(count+1)}}>👍</span>{count}</h3> 
         <p>2월 14일</p>
         <hr />
       </div>
